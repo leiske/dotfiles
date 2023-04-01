@@ -165,6 +165,11 @@ _G.packer_plugins = {
     path = "/home/valid/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
+  ["nvim-ts-rainbow2"] = {
+    loaded = true,
+    path = "/home/valid/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow2",
+    url = "https://github.com/HiPhish/nvim-ts-rainbow2"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/valid/.local/share/nvim/site/pack/packer/start/packer.nvim",
