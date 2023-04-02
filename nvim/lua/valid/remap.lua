@@ -12,10 +12,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "Open File (Ex)plorer"});
 vim.keymap.set("i", "jk", "<esc>", { desc = "Easily escape from insert mode"});
 
 -- Center cursor on screen after moving half-page
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center your cursor when you move down half-page"}); 
-vim.keymap.set("n", "<C-u>", "<C-u>zz",{ desc = "Center your cursor when you move up half-page"}); 
-vim.keymap.set("n", "n", "nzzzv",{ desc = "Your (n)ext search term will be centered"}); 
-vim.keymap.set("n", "N", "Nzzzv",{ desc = "Your (n)ext search term will be centered"}); 
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center your cursor when you move down half-page"});
+vim.keymap.set("n", "<C-u>", "<C-u>zz",{ desc = "Center your cursor when you move up half-page"});
+vim.keymap.set("n", "n", "nzzzv",{ desc = "Your (n)ext search term will be centered"});
+vim.keymap.set("n", "N", "Nzzzv",{ desc = "Your (n)ext search term will be centered"});
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Remap for dealing with word wrap"})
