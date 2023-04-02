@@ -21,7 +21,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 50
@@ -44,7 +44,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.o.swapfile = false
-vim.o.undodir = os.getenv("HOME").. "/.vim/undodir"
+vim.o.undodir = os.getenv("HOME").. "/.config/nvim/undodir"
 vim.o.undofile = true
 
 vim.o.scrolloff = 8

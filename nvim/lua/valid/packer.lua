@@ -12,15 +12,15 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
+  use {
     'sainnhe/everforest',
     as = 'everforest',
     config = function()
       vim.cmd('colorscheme everforest')
     end
-  })
+  }
 
-  use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
+  use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
   -- gc in V mode to comment
   use 'tpope/vim-commentary'
   use 'echasnovski/mini.pairs'
@@ -68,5 +67,14 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},             -- Required
       {'rafamadriz/friendly-snippets'}, -- Optional
     }
+  }
+  use {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   }
 end)

@@ -8,3 +8,5 @@ nvim.bak
 ranger
 
 nvim/plugin/*
+nvim/undodir/*
+
