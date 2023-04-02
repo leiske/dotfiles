@@ -6,6 +6,10 @@ lazynvim.bak
 nextjs-nodejs
 nvim.bak
 ranger
+fish/
+iterm2/
+nvim_working/
+verdaccio/
 
 nvim/plugin/*
 nvim/undodir/*
