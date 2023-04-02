@@ -13,10 +13,10 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'sainnhe/everforest',
-    as = 'everforest',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function()
-      vim.cmd('colorscheme everforest')
+      vim.cmd('colorscheme catppuccin-macchiato')
     end
   }
 
