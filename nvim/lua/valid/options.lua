@@ -47,7 +47,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.o.swapfile = false
-vim.o.undodir = os.getenv("HOME").. "/.vim/undordir"
+vim.o.undodir = os.getenv("HOME").. "/.vim/undodir"
 vim.o.undofile = true
 
 vim.o.scrolloff = 8

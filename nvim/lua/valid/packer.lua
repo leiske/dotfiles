@@ -36,6 +36,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sleuth'
   -- Colored brackets
   use 'HiPhish/nvim-ts-rainbow2'
+  -- Sticky headers
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Pending keybinds
   use 'folke/which-key.nvim'

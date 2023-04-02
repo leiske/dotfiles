@@ -160,6 +160,11 @@ _G.packer_plugins = {
     path = "/home/valid/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/valid/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/valid/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
@@ -209,6 +214,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/valid/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/home/valid/.local/share/nvim/site/pack/packer/start/vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
   },
   ["vim-sleuth"] = {
     loaded = true,

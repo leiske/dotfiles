@@ -46,18 +46,25 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
+    local optsWithDesc = function(desc2)
+        return {
+            buffer = bufner,
+            remap = false,
+            desc = desc2,
+        }
+    end
   local opts = {buffer = bufnr, remap = false}
 
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, optsWithDesc("(g)o to (d)efinition"))
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, optsWithDesc("Show hover menu"))
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, optsWithDesc("Show (v)im (w)orkspace (s)ymbols"))
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, optsWithDesc("Open (v)im (d)iagnostic floating window"))
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, optsWithDesc("Goto next diagnostic item"))
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, optsWithDesc("Goto previous diagnostic item"))
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, optsWithDesc("Run (v)im (c)ode (a)ctions"))
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, optsWithDesc("Show (v)im (r)efe(r)ences"))
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, optsWithDesc("(v)im (r)e(n)ame, Rename the symbol in the buffer"))
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, optsWithDesc("Signature Help"))
 end)
 
 lsp.setup()
