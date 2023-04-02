@@ -14,6 +14,8 @@ vim.keymap.set("i", "jk", "<esc>", { desc = "Easily escape from insert mode"});
 -- Center cursor on screen after moving half-page
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center your cursor when you move down half-page"}); 
 vim.keymap.set("n", "<C-u>", "<C-u>zz",{ desc = "Center your cursor when you move up half-page"}); 
+vim.keymap.set("n", "n", "nzzzv",{ desc = "Your (n)ext search term will be centered"}); 
+vim.keymap.set("n", "N", "Nzzzv",{ desc = "Your (n)ext search term will be centered"}); 
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Remap for dealing with word wrap"})
@@ -59,3 +61,16 @@ wk.register({
     },
   },
 })
+
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down by 1"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv",{ desc = "Move selected lines up by 1"})
+
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "paste over a selected word while retaining your copied item"})
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "(y)ank to system clipboard"})
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "(Y)ank to system clipboard"})
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "(y)ank to system clipboard"})
+
+vim.keymap.set("v", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
+vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
+
