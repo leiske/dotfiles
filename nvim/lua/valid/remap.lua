@@ -77,4 +77,5 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your
 vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the current buffer"})
 
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
+vim.keymap.set("t", "<leader><esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
 
