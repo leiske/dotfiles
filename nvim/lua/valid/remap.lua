@@ -14,6 +14,7 @@ vim.keymap.set("i", "jk", "<esc>", { desc = "Easily escape from insert mode"});
 -- Center cursor on screen after moving half-page
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center your cursor when you move down half-page"});
 vim.keymap.set("n", "<C-u>", "<C-u>zz",{ desc = "Center your cursor when you move up half-page"});
+vim.keymap.set("n", "<C-o>", "<C-o>zz",{ desc = "Center your cursor when returning to a file"});
 vim.keymap.set("n", "n", "nzzzv",{ desc = "Your (n)ext search term will be centered"});
 vim.keymap.set("n", "N", "Nzzzv",{ desc = "Your (n)ext search term will be centered"});
 

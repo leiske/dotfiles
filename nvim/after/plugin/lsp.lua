@@ -14,6 +14,11 @@ lsp.configure('lua-language-server', {
             diagnostics = {
                 globals = { 'vim' }
             }
+        },
+        Javascript = {
+            diagnostics = {
+                globals = { 'fetch', 'createImageBitmap' }
+            }
         }
     }
 })
