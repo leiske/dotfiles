@@ -74,3 +74,5 @@ vim.keymap.set("v", "<leader>y", "\"+y", { desc = "(y)ank to system clipboard"})
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
 vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
 
+vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the current buffer"})
+
