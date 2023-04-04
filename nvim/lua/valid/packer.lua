@@ -46,6 +46,9 @@ return require('packer').startup(function(use)
   -- Pending keybinds
   use 'folke/which-key.nvim'
 
+  use 'lewis6991/impatient.nvim'
+  use 'lewis6991/gitsigns.nvim'
+
   -- status updates for lsp
   use 'j-hui/fidget.nvim'
 
