@@ -1,15 +1,7 @@
-# opt-in
-.DS_STORE
-configstore
-lazygit
-lazynvim.bak
-nextjs-nodejs
-nvim.bak
-ranger
-fish/
-iterm2/
-nvim_working/
-verdaccio/
+/*
+!/.gitignore
+!/
+!/nvim
 
 nvim/plugin/*
 nvim/undodir/*
