@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
 
   -- status updates for lsp
   use 'j-hui/fidget.nvim'
+  use 'chrisbra/Colorizer'
 
   -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'MunifTanjim/prettier.nvim'
