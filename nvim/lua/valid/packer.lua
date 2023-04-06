@@ -35,7 +35,13 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   -- gc in V mode to comment
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
   use 'echasnovski/mini.pairs'
   use 'tpope/vim-sleuth'
   -- Colored brackets
@@ -48,6 +54,9 @@ return require('packer').startup(function(use)
 
   use 'lewis6991/impatient.nvim'
   use 'lewis6991/gitsigns.nvim'
+
+  use 'maxmellon/vim-jsx-pretty'
+  use 'yuezk/vim-js'
 
   -- status updates for lsp
   use 'j-hui/fidget.nvim'
