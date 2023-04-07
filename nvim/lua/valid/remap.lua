@@ -51,12 +51,37 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+function runCommand(cmd) 
+  local handle = io.popen(cmd)
+  local output = handle:read('*a')
+  handle:close()
+  return output;
+end
+
 wk.register({
   ["<leader>"] = {
     s = {
       name = "search",
       f = {require('telescope.builtin').find_files, '[S]earch [F]iles'},
-      p = {function() require('telescope.builtin').live_grep({cwd = '~/develop/'}) end, '[S]earch package'},
+      p = {function()
+        local currentFile = vim.api.nvim_buf_get_name(0);
+        local _, packageNameStartIndex = string.find(currentFile, "packages", 1, true)
+        if(packageNameStartIndex == nil) then
+          -- this is done to match my work that always follows this convention
+          print("not under a parent directory with the name packages")
+          return
+        end
+        local packageWithChildren = currentFile:sub(packageNameStartIndex + 1, #currentFile)
+        local packageName = packageWithChildren:sub(1, string.find(packageWithChildren, '/',2 ));
+        local packageWorkingDir = currentFile:sub(1,packageNameStartIndex) .. packageName;
+        print (packageWorkingDir)
+        if(packageWorkingDir == nil or packageWorkingDir == '') then
+          print("could not find packages directory")
+          return
+        end
+        require('telescope.builtin').find_files( { cwd = packageWorkingDir })
+
+      end, '[S]earch package'},
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       n = { "<cmd>enew<cr>", "New File" },
     },
