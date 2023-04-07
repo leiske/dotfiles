@@ -42,7 +42,6 @@ vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
-    previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
@@ -57,8 +56,9 @@ wk.register({
     s = {
       name = "search",
       f = {require('telescope.builtin').find_files, '[S]earch [F]iles'},
-      -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      -- n = { "<cmd>enew<cr>", "New File" },
+      p = {function() require('telescope.builtin').live_grep({cwd = '~/develop/'}) end, '[S]earch package'},
+      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+      n = { "<cmd>enew<cr>", "New File" },
     },
   },
 })
