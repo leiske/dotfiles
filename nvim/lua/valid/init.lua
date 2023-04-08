@@ -3,4 +3,4 @@ require("valid.remap");
 require("valid.options");
 require("valid.os");
 
-vim.cmd.HardTimeOn();
+vim.o.hardtime_default_on = 1;
