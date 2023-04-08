@@ -105,3 +105,5 @@ vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the curren
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
 vim.keymap.set("t", "<leader><esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
 
+vim.keymap.set("n", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})
+vim.keymap.set("v", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})
