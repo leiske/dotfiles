@@ -1,5 +1,7 @@
 -- Fat cursor
-vim.o.guicursor = ""
+-- vim.o.guicursor = ""
+
+vim.g.hardtime_default_on = 1;
 
 -- Set highlight on search
 vim.o.hlsearch = false
