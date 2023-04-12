@@ -93,9 +93,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv",{ desc = "Move selected lines up by 1"})
 
 vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "paste over a selected word while retaining your copied item"})
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "(y)ank to system clipboard"})
-vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "(Y)ank to system clipboard"})
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "(y)ank to system clipboard"})
+vim.keymap.set("n", "<leader>Y", "\"*Y", { desc = "(Y)ank to system clipboard"})
+vim.keymap.set("v", "<leader>y", "\"*y", { desc = "(y)ank to system clipboard"})
 
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
 vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your copied item"})
