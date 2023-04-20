@@ -1,7 +1,7 @@
 -- Fat cursor
 -- vim.o.guicursor = ""
 
-vim.g.hardtime_default_on = 1;
+-- vim.g.hardtime_default_on = 1;
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -50,4 +50,7 @@ vim.o.undodir = os.getenv("HOME").. "/.config/nvim/undodir"
 vim.o.undofile = true
 
 vim.o.scrolloff = 8
+
+vim.o.splitbelow = true
+vim.o.splitright = true
 
