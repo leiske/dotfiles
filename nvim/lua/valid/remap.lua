@@ -6,7 +6,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true, desc = "Ensure leader(space) isn't used" })
 
 -- File Explorer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Lexplore, {desc = "Open File (Ex)plorer"});
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "Open File (Ex)plorer"});
 
 -- Easier exit of insert mode
 vim.keymap.set("i", "jk", "<esc>", { desc = "Easily escape from insert mode"});
