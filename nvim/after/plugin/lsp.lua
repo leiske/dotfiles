@@ -53,7 +53,7 @@ lsp.set_preferences({
 lsp.on_attach(function(client, bufnr)
     local optsWithDesc = function(desc2)
         return {
-            buffer = bufner,
+            buffer = bufnr,
             remap = false,
             desc = desc2,
         }
