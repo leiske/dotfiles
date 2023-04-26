@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd('textyankpost', {
 -- Telescope binds
 
 -- See `:help telescope.builtin`
+vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto definition using lsp (ignores *.d.ts files)' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
