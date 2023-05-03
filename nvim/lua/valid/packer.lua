@@ -58,6 +58,9 @@ return require('packer').startup(function(use)
   use 'maxmellon/vim-jsx-pretty'
   use 'yuezk/vim-js'
 
+  -- Open current line on GitHub
+  use 'ruanyl/vim-gh-line'
+
   -- status updates for lsp
   use 'j-hui/fidget.nvim'
   use 'chrisbra/Colorizer'
