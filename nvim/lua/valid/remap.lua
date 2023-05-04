@@ -14,7 +14,7 @@ vim.keymap.set("i", "jk", "<esc>", { desc = "Easily escape from insert mode"});
 -- Center cursor on screen after moving half-page
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center your cursor when you move down half-page"});
 vim.keymap.set("n", "<C-u>", "<C-u>zz",{ desc = "Center your cursor when you move up half-page"});
-vim.keymap.set("n", "<C-o>", "<C-o>zz",{ desc = "Center your cursor when returning to a file"});
+-- vim.keymap.set("n", "<C-o>", "<C-o>zz",{ desc = "Center your cursor when returning to a file"});
 vim.keymap.set("n", "n", "nzzzv",{ desc = "Your (n)ext search term will be centered"});
 vim.keymap.set("n", "N", "Nzzzv",{ desc = "Your (n)ext search term will be centered"});
 
@@ -36,7 +36,6 @@ vim.api.nvim_create_autocmd('textyankpost', {
 -- Telescope binds
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto definition using lsp (ignores *.d.ts files)' })
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
@@ -77,6 +76,23 @@ local function getCurrentBufferWorkingDirectory()
   return packageWorkingDir
 end
 
+local function gotoDefinition()
+  require('telescope.builtin').lsp_definitions( {
+    initial_mode = "normal",
+    on_complete = {
+      function(picker)
+        -- remove this on_complete callback
+        picker:clear_completion_callbacks()
+        -- if we have exactly one match, select it
+        if picker.manager.linked_states.size == 1 then
+          require("telescope.actions").select_default(picker.prompt_bufnr)
+        end
+      end,
+    }
+  })
+end
+
+-- vim.keymap.set('n', 'gd', gotoDefinition, { desc = 'Goto definition using lsp (ignores *.d.ts files)' })
 wk.register({
   ["<leader>"] = {
     s = {
@@ -89,7 +105,11 @@ wk.register({
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       n = { "<cmd>enew<cr>", "New File" },
     },
-  },
+    g = {
+      name = "goto",
+      d = {function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)'},
+    },
+  }
 })
 
 

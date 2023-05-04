@@ -53,3 +53,8 @@ vim.o.scrolloff = 8
 
 vim.o.splitbelow = true
 vim.o.splitright = true
+
+-- only run on Mac AKA work machine, maybe move away from IS_BASH lol
+if (not IS_BASH) then
+  vim.g.gh_github_domain = os.getenv("WORK_GH_DOMAIN");
+end
