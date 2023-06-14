@@ -1,58 +1,60 @@
--- Fat cursor
--- vim.o.guicursor = ""
+local options = {
+  -- Set highlight on search
+  hlsearch = false,
+  incsearch = true,
 
--- vim.g.hardtime_default_on = 1;
+  -- Make line numbers default
+  number = true,
+  relativenumber = true,
 
--- Set highlight on search
-vim.o.hlsearch = false
-vim.o.incsearch = true
+  -- Enable break indent
+  breakindent = true,
 
--- Make line numbers default
+  -- Case insensitive searching UNLESS /C or capital in search
+  ignorecase = true,
+  smartcase = true,
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+  -- Keep signcolumn on by default
+  signcolumn = 'yes',
 
--- Enable break indent
-vim.o.breakindent = true
+  -- Decrease update time
+  updatetime = 50,
 
--- Save undo history
-vim.o.undofile = true
+  -- Used for which-key
+  timeout = true,
+  timeoutlen = 300,
 
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+  -- Set completeopt to have a better completion experience
+  completeopt = 'menuone,noselect',
 
--- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+  -- NOTE: You should make sure your terminal supports this
+  termguicolors = true,
 
--- Decrease update time
-vim.o.updatetime = 50
+  tabstop = 4,
+  softtabstop = 4,
+  shiftwidth = 4,
+  expandtab = true,
 
--- Used for which-key
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+  smartindent = true,
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+  -- Persistent undos (sort of?)
+  swapfile = false,
+  undodir = os.getenv("HOME").. "/.config/nvim/undodir",
+  undofile = true,
 
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+  scrolloff = 8,
 
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
+  -- more natural placement of new windows
+  splitbelow = true,
+  splitright = true,
 
-vim.o.smartindent = true
+  -- highlight horizontally the line the cursor is on
+  cursorline = true,
+}
 
-vim.o.swapfile = false
-vim.o.undodir = os.getenv("HOME").. "/.config/nvim/undodir"
-vim.o.undofile = true
-
-vim.o.scrolloff = 8
-
-vim.o.splitbelow = true
-vim.o.splitright = true
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
 -- only run on Mac AKA work machine, maybe move away from IS_BASH lol
 if (not IS_BASH) then
