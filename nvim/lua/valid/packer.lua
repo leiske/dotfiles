@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
+  use  'nvim-treesitter/nvim-treesitter'
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ThePrimeagen/harpoon'
@@ -99,4 +99,8 @@ return require('packer').startup(function(use)
     end
   }
   use 'sbdchd/neoformat'
+
+  use 'github/copilot.vim'
+
+  use 'ggandor/leap.nvim'
 end)
