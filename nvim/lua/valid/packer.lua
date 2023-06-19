@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
+  use  'nvim-treesitter/nvim-treesitter'
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ThePrimeagen/harpoon'
@@ -103,7 +103,6 @@ return require('packer').startup(function(use)
       })
     end
   }
-  -- use 'sbdchd/neoformat'
   use 'ggandor/leap.nvim'
 
   use {
@@ -111,5 +110,6 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
-  -- use 'sindrets/diffview.nvim'
+  use 'github/copilot.vim'
+
 end)
