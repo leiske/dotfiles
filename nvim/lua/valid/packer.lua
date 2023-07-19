@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- File tree
+  -- use('nvim-tree/nvim-tree.lua')
+
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -29,9 +32,9 @@ return require('packer').startup(function(use)
 
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ThePrimeagen/harpoon'
-  use 'ThePrimeagen/vim-be-good'
+  -- use 'ThePrimeagen/vim-be-good'
   use 'mbbill/undotree'
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
   -- gc in V mode to comment
   use 'tpope/vim-commentary'
@@ -41,8 +44,8 @@ return require('packer').startup(function(use)
   --       require('Comment').setup()
   --   end
   -- }
-  use 'echasnovski/mini.pairs'
-  use 'tpope/vim-sleuth'
+  -- use 'echasnovski/mini.pairs'
+  -- use 'tpope/vim-sleuth'
   -- Colored brackets
   use 'HiPhish/nvim-ts-rainbow2'
   -- Sticky headers
@@ -51,9 +54,9 @@ return require('packer').startup(function(use)
   -- Pending keybinds
   use 'folke/which-key.nvim'
 
-  use 'lewis6991/impatient.nvim'
+  -- use 'lewis6991/impatient.nvim'
   use 'lewis6991/gitsigns.nvim'
-  use 'takac/vim-hardtime'
+  -- use 'takac/vim-hardtime'
 
   use 'maxmellon/vim-jsx-pretty'
   use 'yuezk/vim-js'
@@ -66,7 +69,9 @@ return require('packer').startup(function(use)
   use 'chrisbra/Colorizer'
 
   -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'MunifTanjim/prettier.nvim'
+  -- use 'MunifTanjim/prettier.nvim'
+  -- use 'psf/black'
+
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -98,5 +103,13 @@ return require('packer').startup(function(use)
       })
     end
   }
-  use 'sbdchd/neoformat'
+  -- use 'sbdchd/neoformat'
+  use 'ggandor/leap.nvim'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  -- use 'sindrets/diffview.nvim'
 end)
