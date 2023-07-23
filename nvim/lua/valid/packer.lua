@@ -9,10 +9,10 @@ return require('packer').startup(function(use)
   -- File tree
   -- use('nvim-tree/nvim-tree.lua')
 
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  -- use {
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   requires = { {'nvim-lua/plenary.nvim'} }
+  -- }
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
