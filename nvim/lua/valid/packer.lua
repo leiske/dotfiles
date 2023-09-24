@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
   -- use 'echasnovski/mini.pairs'
   -- use 'tpope/vim-sleuth'
   -- Colored brackets
-  use 'HiPhish/nvim-ts-rainbow2'
+  -- use 'HiPhish/nvim-ts-rainbow2'
   -- Sticky headers
   use 'nvim-treesitter/nvim-treesitter-context'
 
