@@ -36,7 +36,20 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = {
+        {'nvim-treesitter/nvim-treesitter'}
+    },
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    requires = {
+        {'nvim-treesitter/nvim-treesitter'}
+    },
+  }
+
   use 'ThePrimeagen/harpoon'
   -- use 'ThePrimeagen/vim-be-good'
   use 'mbbill/undotree'
@@ -55,7 +68,6 @@ return require('packer').startup(function(use)
   -- Colored brackets
   -- use 'HiPhish/nvim-ts-rainbow2'
   -- Sticky headers
-  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Pending keybinds
   use 'folke/which-key.nvim'
