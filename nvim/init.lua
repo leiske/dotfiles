@@ -1,3 +1,4 @@
-require("valid");
-require('gitsigns').setup();
-
+require('packages')
+require('colorscheme')
+require('options')
+require('keybinds')
