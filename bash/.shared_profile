@@ -1,0 +1,43 @@
+# vim:ft=bash
+
+# XDG stuff
+export XDG_CONFIG_HOME=~/.config/
+export XDG_DATA_HOME=~/.local/share/
+export XDG_CACHE_HOME=~/.cache/
+
+export EDITOR="$(which nvim || which vim)"
+export VISUAL="$(which nvim || which vim)"
+
+# lots of unoptimized git stuff here
+alias gs='git status'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gp='git push'
+alias gc='git checkout $1'
+alias ga='git add'
+alias gau='git add -u'
+alias gcb='git checkout -b $1'
+alias gcm='git commit -m $1'
+alias gpum='git pull upstream master'
+alias gpumn='git pull upstream main'
+
+# I should start using this more
+alias la='ls -al'
+
+alias vim="nvim"
+alias cvim="nvim ~/.config/nvim"
+alias generateSecret="openssl rand -base64 ${1:-32}"
+
+alias sbp='source ~/.bashrc'
+function vbp() {
+    nvim ~/.bashrc
+    . ~/.bashrc
+}
+
+if [ -f ~/.work_profile ]; then
+        . ~/.work_profile
+fi
+
+if [ -f ~/.home_profile ]; then
+        . ~/.home_profile
+fi

@@ -1,0 +1,15 @@
+# vim:ft=bash
+
+function jira() {
+    export TMP_FILE=$(mktemp)
+    nvim "+0r ~/.config/jira_template.md" +3 $TMP_FILE
+    export jiraFmt=$(cat $TMP_FILE | pandoc -f markdown -t textile)
+
+    # only copy to clipboard if it is not an empty string
+    if [ -n "$jiraFmt" ]; then
+        echo $jiraFmt | pbcopy
+        echo "Copied to clipboard. Don't forget to make sure it is a Story, not a Request."
+    fi
+}
+
+# ghpr goes here

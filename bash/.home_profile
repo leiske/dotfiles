@@ -1,0 +1,15 @@
+# vim:ft=bash
+
+alias winry="cd /home/valid/develop/winry"
+
+alias pbcopy='clip.exe'
+alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r' | head -n -1"
+
+# journal
+export logdir=~/.journal
+function journal(){
+    vim $logdir/$(date +%Y-%m-%d -d "$*").md
+}
+
+alias ask='ollama run llama3 "$1"'
+alias askg='ollama run llama3 "$1" | glow'
