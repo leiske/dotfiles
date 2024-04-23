@@ -16,6 +16,7 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
 
+  { 'github/copilot.vim' },
    -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -57,7 +58,13 @@ require('lazy').setup({
   'tpope/vim-repeat',
   'tpope/vim-commentary',
   'ruanyl/vim-gh-line',
-  'kylechui/nvim-surround',
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup();
+        end
+    },
   'ggandor/leap.nvim',
 
    -- NOTE: This is where your plugins related to LSP can be installed.
