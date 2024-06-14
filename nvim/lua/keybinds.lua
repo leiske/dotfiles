@@ -50,6 +50,9 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { desc = 'Run (v)im (c)ode (a)ctions' })
+vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { desc = '(v)im (r)e(n)ame, Rename the symbol in the buffer' })
+vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { desc = 'Open (v)im (d)iagnostic floating window' })
 
 local function getCurrentBufferWorkingDirectory()
   local currentFile = vim.api.nvim_buf_get_name(0);
@@ -111,7 +114,6 @@ wk.register({
     },
   }
 })
-
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down by 1"})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv",{ desc = "Move selected lines up by 1"})

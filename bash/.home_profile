@@ -13,3 +13,6 @@ function journal(){
 
 alias ask='ollama run llama3 "$1"'
 alias askg='ollama run llama3 "$1" | glow'
+
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias open='explorer.exe .'
