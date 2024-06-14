@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     }
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
@@ -44,6 +45,7 @@ require('lazy').setup({
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
+        opts = {}
     },
 
     {
@@ -55,6 +57,37 @@ require('lazy').setup({
         build = ':TSUpdate',
     },
 
+    -- Adds the middle cmdline and floating notifs 
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+            lsp = {
+                -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
+                    ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+                },
+            },
+            -- you can enable a preset for easier configuration
+            presets = {
+                -- bottom_search = true, -- use a classic bottom cmdline for search
+                long_message_to_split = true, -- long messages will be sent to a split
+                lsp_doc_border = false, -- add a border to hover docs and signature help
+            },
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    },
+
     -- quickly switch between windows
     'ThePrimeagen/harpoon',
     -- adds more to the . 
@@ -63,6 +96,7 @@ require('lazy').setup({
     'tpope/vim-commentary',
     -- Open current file in github
     'ruanyl/vim-gh-line',
+    -- ysawb, my love (surrounding text with quotes, brackets, etc)
     {
         "kylechui/nvim-surround",
         event = "VeryLazy",
@@ -70,12 +104,11 @@ require('lazy').setup({
             require("nvim-surround").setup();
         end
     },
+    -- for different vertical movement when i feel like it
     'ggandor/leap.nvim',
-    'jwalton512/vim-blade',
 
-    -- NOTE: This is where your plugins related to LSP can be installed.
+    -- LSP Configuration & Plugins
     {
-        -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
@@ -83,8 +116,7 @@ require('lazy').setup({
             'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+            -- { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             'folke/neodev.nvim',

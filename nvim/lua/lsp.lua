@@ -1,70 +1,92 @@
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
-        -- Add languages to be installed here that you want installed for treesitter
-        ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'php', 'query' },
+    -- Add languages to be installed here that you want installed for treesitter
+    ensure_installed = {
+        'c',
+        'cpp',
+        'go',
+        'lua',
+        'python',
+        'tsx',
+        'javascript',
+        'typescript',
+        'vimdoc',
+        'vim',
+        'php',
+        'query',
+        'regex',
+        'bash',
+        'markdown',
+        'markdown_inline',
+    },
 
-        -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-        auto_install = false,
+    modules = {},
+    sync_install = true,
+    ignore_install = {},
 
-        highlight = { enable = true },
-        indent = { enable = true },
-        incremental_selection = {
+    -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+    auto_install = false,
+
+    highlight = { enable = true },
+    indent = { enable = true },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<c-h>',
+            node_incremental = '<c-h>',
+            scope_incremental = '<c-s>',
+            node_decremental = '<M-h>',
+        },
+    },
+    textobjects = {
+        enable = true,
+        select = {
             enable = true,
+            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
-                init_selection = '<c-space>',
-                node_incremental = '<c-space>',
-                scope_incremental = '<c-s>',
-                node_decremental = '<M-space>',
+                -- You can use the capture groups defined in textobjects.scm
+                ['aa'] = '@parameter.outer',
+                ['ia'] = '@parameter.inner',
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
             },
         },
-        textobjects = {
+        move = {
             enable = true,
-            select = {
-                enable = true,
-                lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-                keymaps = {
-                    -- You can use the capture groups defined in textobjects.scm
-                    ['aa'] = '@parameter.outer',
-                    ['ia'] = '@parameter.inner',
-                    ['af'] = '@function.outer',
-                    ['if'] = '@function.inner',
-                    ['ac'] = '@class.outer',
-                    ['ic'] = '@class.inner',
-                },
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+                [']m'] = '@function.outer',
+                [']]'] = '@class.outer',
             },
-            move = {
-                enable = true,
-                set_jumps = true, -- whether to set jumps in the jumplist
-                goto_next_start = {
-                    [']m'] = '@function.outer',
-                    [']]'] = '@class.outer',
-                },
-                goto_next_end = {
-                    [']M'] = '@function.outer',
-                    [']['] = '@class.outer',
-                },
-                goto_previous_start = {
-                    ['[m'] = '@function.outer',
-                    ['[['] = '@class.outer',
-                },
-                goto_previous_end = {
-                    ['[M'] = '@function.outer',
-                    ['[]'] = '@class.outer',
-                },
+            goto_next_end = {
+                [']M'] = '@function.outer',
+                [']['] = '@class.outer',
             },
-            swap = {
-                enable = true,
-                swap_next = {
-                    ['<leader>a'] = '@parameter.inner',
-                },
-                swap_previous = {
-                    ['<leader>A'] = '@parameter.inner',
-                },
+            goto_previous_start = {
+                ['[m'] = '@function.outer',
+                ['[['] = '@class.outer',
+            },
+            goto_previous_end = {
+                ['[M'] = '@function.outer',
+                ['[]'] = '@class.outer',
             },
         },
+        swap = {
+            enable = true,
+            swap_next = {
+                ['<leader>a'] = '@parameter.inner',
+            },
+            swap_previous = {
+                ['<leader>A'] = '@parameter.inner',
+            },
+        },
+    },
     }
 
+-- set formatting based on file types here
 vim.filetype.add({
     extension = {
         yaml = 'helm',
@@ -74,15 +96,7 @@ vim.filetype.add({
     },
 })
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
-local servers = {
+local masonServers = {
     -- gopls = {},
     -- pyright = {},
     -- rust_analyzer = {},
@@ -108,7 +122,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = vim.tbl_keys(masonServers),
 }
 
 mason_lspconfig.setup_handlers {
@@ -116,8 +130,8 @@ function(server_name)
     require('lspconfig')[server_name].setup {
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
+        settings = masonServers[server_name],
+        filetypes = (masonServers[server_name] or {}).filetypes,
     }
 end
 }
