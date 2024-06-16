@@ -3,6 +3,5 @@
 !/
 !/nvim
 
-nvim/plugin/*
 nvim/undodir/*
 

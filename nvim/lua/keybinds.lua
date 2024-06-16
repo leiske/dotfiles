@@ -50,6 +50,9 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { desc = 'Run (v)im (c)ode (a)ctions' })
+vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { desc = '(v)im (r)e(n)ame, Rename the symbol in the buffer' })
+vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { desc = 'Open (v)im (d)iagnostic floating window' })
 
 local function getCurrentBufferWorkingDirectory()
   local currentFile = vim.api.nvim_buf_get_name(0);
@@ -112,7 +115,6 @@ wk.register({
   }
 })
 
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down by 1"})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv",{ desc = "Move selected lines up by 1"})
 
@@ -126,7 +128,20 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your
 vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the current buffer"})
 
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
-vim.keymap.set("t", "<leader><esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
+vim.keymap.set("t", "<esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
 
 vim.keymap.set("n", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})
 vim.keymap.set("v", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set('n', '<leader>ha', mark.add_file, {desc = "Add file to harpoon list"})
+vim.keymap.set('n', '<leader>hl', ui.toggle_quick_menu, { desc = "Show harpoon list"})
+
+vim.keymap.set('n', '<C-j>', function() ui.nav_file(1) end, { desc = "Harpoon to first buffer"})
+vim.keymap.set('n', '<C-k>', function() ui.nav_file(2) end, { desc = "Harpoon to second buffer"})
+vim.keymap.set('n', '<C-l>', function() ui.nav_file(3) end, { desc = "Harpoon to third buffer"})
+vim.keymap.set('n', '<C-;>', function() ui.nav_file(4) end, { desc = "Harpoon to fourth buffer"})
+
+require('leap').add_default_mappings()
