@@ -48,6 +48,12 @@ require('lazy').setup({
         opts = {}
     },
 
+    -- Git blame and stuff
+    {
+        'lewis6991/gitsigns.nvim',
+        opts = {}
+    },
+
     {
         -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
