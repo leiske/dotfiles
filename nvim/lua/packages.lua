@@ -21,9 +21,14 @@ require('lazy').setup({
   },
 
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim', opts = {} },
+    {
+      'folke/which-key.nvim',
+      opts = {},
+    },
 
-    { 'github/copilot.vim' },
+    {
+      'github/copilot.vim',
+    },
     -- Fuzzy Finder (files, lsp, etc)
     {
         'nvim-telescope/telescope.nvim',
@@ -117,6 +122,15 @@ require('lazy').setup({
     },
     -- for different vertical movement when i feel like it
     'ggandor/leap.nvim',
+
+  {
+    'Wansmer/treesj',
+    -- keys = { '<space>m', '<space>j', '<space>s' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup({ max_join_length=512 })
+    end,
+  },
 
     -- LSP Configuration & Plugins
     {
