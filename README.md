@@ -9,3 +9,8 @@ git clone git@github.com:leiske/dotfiles.git ~/.config/
 (should fail to install if it can't make a backup)
 
 Probably add `alias vim="nvim"` or something like that
+
+
+## tmux plugins
+
+Use `prefix + I` to install plugins
