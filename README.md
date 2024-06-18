@@ -14,3 +14,13 @@ Probably add `alias vim="nvim"` or something like that
 ## tmux plugins
 
 Use `prefix + I` to install plugins
+
+## Issues migrating from Packer to Lazy?
+
+Try clearing cache and stuff and restart vim few times
+
+```bash
+rm -r ~/.local/share/nvim
+# check your XDG_* env vars for this
+rm -r ~/.cache/nvim
+```
