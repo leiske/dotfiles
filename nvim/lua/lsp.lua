@@ -89,7 +89,7 @@ require('nvim-treesitter.configs').setup {
 -- set formatting based on file types here
 vim.filetype.add({
     extension = {
-        yaml = 'helm',
+        -- yaml = 'helm',
     },
     pattern = {
         ['.*%.blade%.php'] = 'blade',

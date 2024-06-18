@@ -112,6 +112,12 @@ wk.register({
       name = "goto",
       d = {function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)'},
     },
+    c = {
+      n = { ":cn<CR>", "Next Quickfix" },
+      p = { ":cp<CR>", "Previous Quickfix" },
+      l = { ":clist<CR>", "Open Quickfix List" },
+      c = { ":cclose<CR>", "Close Quickfix List" },
+    },
   }
 })
 
@@ -143,5 +149,6 @@ vim.keymap.set('n', '<C-j>', function() ui.nav_file(1) end, { desc = "Harpoon to
 vim.keymap.set('n', '<C-k>', function() ui.nav_file(2) end, { desc = "Harpoon to second buffer"})
 vim.keymap.set('n', '<C-l>', function() ui.nav_file(3) end, { desc = "Harpoon to third buffer"})
 vim.keymap.set('n', '<C-;>', function() ui.nav_file(4) end, { desc = "Harpoon to fourth buffer"})
+
 
 require('leap').add_default_mappings()

@@ -16,6 +16,7 @@ alias gp='git push'
 alias gc='git checkout $1'
 alias ga='git add'
 alias gau='git add -u'
+# why did these break on mac out of no where? I thought I could always use params in aliases but this is feeling like a mandela effect moment or something
 alias gcb='git checkout -b $1'
 alias gcm='git commit -m $1'
 alias gpum='git pull upstream master'
@@ -27,6 +28,9 @@ alias la='ls -al'
 alias vim="nvim"
 alias cvim="nvim ~/.config/nvim"
 alias generateSecret="openssl rand -base64 ${1:-32}"
+
+alias k="kubectl"
+alias ar="php artisan"
 
 alias sbp='source ~/.bashrc'
 function vbp() {
