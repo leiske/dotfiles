@@ -16,3 +16,7 @@ alias askg='ollama run llama3 "$1" | glow'
 
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias open='explorer.exe .'
+
+# asdf version manager for things like node
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"

@@ -13,6 +13,10 @@ Probably add `alias vim="nvim"` or something like that
 
 ## tmux plugins
 
+docs: https://github.com/tmux-plugins/tpm
+
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
 Use `prefix + I` to install plugins
 
 ## Issues migrating from Packer to Lazy?
