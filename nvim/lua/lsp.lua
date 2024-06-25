@@ -164,12 +164,7 @@ cmp.setup {
             select = true,
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
-            -- I took out the way to jump through the list with Tab because it interferes with copilot and snippets
-            if luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            else
                 fallback()
-            end
         end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
