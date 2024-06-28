@@ -79,6 +79,9 @@ require('lazy').setup({
     event = "VeryLazy",
     opts = {
       -- add any options here
+      messages = {
+        enabled = false,
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -91,7 +94,22 @@ require('lazy').setup({
       presets = {
         -- bottom_search = true, -- use a classic bottom cmdline for search
         long_message_to_split = true, -- long messages will be sent to a split
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+      routes = {
+        {
+          -- this really just spams me with progress messages on every few keystrokes
+          -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#ignore-certain-lsp-servers-for-progress-messages
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            cond = function(message)
+              local client = vim.tbl_get(message.opts, "progress", "client")
+              return client == "lua_ls"
+            end,
+          },
+          opts = { skip = true },
+        },
       },
     },
     dependencies = {
@@ -111,7 +129,10 @@ require('lazy').setup({
   -- for commenting code
   'tpope/vim-commentary',
   -- Open current file in github
-  'ruanyl/vim-gh-line',
+  -- 'ruanyl/vim-gh-line',
+  {
+    'tpope/vim-fugitive',
+  },
   -- ysawb, my love (surrounding text with quotes, brackets, etc)
   {
     "kylechui/nvim-surround",

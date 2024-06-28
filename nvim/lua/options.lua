@@ -56,7 +56,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
--- only run on Mac AKA work machine, maybe move away from IS_BASH lol
+-- only run on work machine, maybe move away from IS_BASH lol
 if (not IS_BASH) then
   vim.g.gh_github_domain = os.getenv("WORK_GH_DOMAIN");
 end
+
+vim.g.gh_line_map_default = 1

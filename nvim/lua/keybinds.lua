@@ -95,7 +95,6 @@ local function gotoDefinition()
   })
 end
 
--- vim.keymap.set('n', 'gd', gotoDefinition, { desc = 'Goto definition using lsp (ignores *.d.ts files)' })
 wk.register({
   ["<leader>"] = {
     s = {
@@ -109,8 +108,15 @@ wk.register({
       n = { "<cmd>enew<cr>", "New File" },
     },
     g = {
-      name = "goto",
-      d = {function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)'},
+      name = "goto|git",
+      d = { function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)' },
+      -- defaults set by vim-gh-line
+      -- h -- open file in GitHub
+      -- b -- open blame in GitHub
+    },
+    t = {
+      name = "toggle",
+      b = { ":Gitsigns toggle_current_line_blame<CR>", "toggle git blame for current line" },
     },
     c = {
       n = { ":cn<CR>", "Next Quickfix" },
@@ -133,7 +139,7 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your
 
 vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the current buffer"})
 
-vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
+-- vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
 vim.keymap.set("t", "<esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
 
 vim.keymap.set("n", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})
