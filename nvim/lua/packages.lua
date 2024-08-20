@@ -23,12 +23,16 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   {
     'folke/which-key.nvim',
-    opts = {},
+    opts = {
+      -- suppress warnings because some keybinds overlap. It's fine.
+      notify = false,
+    },
   },
 
   {
     'github/copilot.vim',
   },
+
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -124,16 +128,20 @@ require('lazy').setup({
 
   -- quickly switch between windows
   'ThePrimeagen/harpoon',
+
   -- adds more to the . 
   'tpope/vim-repeat',
+
   -- for commenting code
   'tpope/vim-commentary',
+
   -- Open current file in github
   {
     'ruanyl/vim-gh-line',
     config = function()
     end,
   },
+
   -- ysawb, my love (surrounding text with quotes, brackets, etc)
   {
     "kylechui/nvim-surround",
@@ -142,6 +150,7 @@ require('lazy').setup({
       require("nvim-surround").setup();
     end
   },
+
   -- for different vertical movement when i feel like it
   'ggandor/leap.nvim',
 
