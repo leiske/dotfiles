@@ -90,6 +90,8 @@ require('nvim-treesitter.configs').setup {
 vim.filetype.add({
     extension = {
         -- yaml = 'helm',
+      -- using ansible templating for docker compose yaml files
+        j2 = 'yaml',
     },
     pattern = {
         ['.*%.blade%.php'] = 'blade',
