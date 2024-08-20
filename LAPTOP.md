@@ -40,6 +40,7 @@ See https://wiki.archlinux.org/title/Bluetooth
 ### stuff used
 
 * `imv` - image viewer
+* `wev` - utility to see keycodes when pressing
 * `fzf` - fuzzy finder
 * `nvim` - text editor
 * `Hyprland` - window manager

@@ -108,11 +108,10 @@ wk.register({
       n = { "<cmd>enew<cr>", "New File" },
     },
     g = {
-      name = "goto|git",
-      d = { function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)' },
-      -- defaults set by vim-gh-line
-      -- h -- open file in GitHub
-      -- b -- open blame in GitHub
+      name = "goto/github",
+      d = {function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)'},
+      h = {":GHInteractive<cr>", "open current line in GitHub"},
+      b = {":GBInteractive<cr>", "open current line blame in GitHub"},
     },
     t = {
       name = "toggle",
@@ -139,7 +138,6 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "(d)elete while retaining your
 
 vim.keymap.set("n", "<leader>f", vim.cmd.Prettier, { desc = "(f)ormat the current buffer"})
 
--- vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>" , {desc = "toggle git blame for current line"})
 vim.keymap.set("t", "<esc>", "<C-\\><C-N>" , {desc = "Escape from terminal mode"})
 
 vim.keymap.set("n", "0", "^", { desc = "Changes 0 to go to first non-blank character on line"})

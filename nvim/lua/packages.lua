@@ -129,9 +129,10 @@ require('lazy').setup({
   -- for commenting code
   'tpope/vim-commentary',
   -- Open current file in github
-  -- 'ruanyl/vim-gh-line',
   {
-    'tpope/vim-fugitive',
+    'ruanyl/vim-gh-line',
+    config = function()
+    end,
   },
   -- ysawb, my love (surrounding text with quotes, brackets, etc)
   {
@@ -184,4 +185,5 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
+  -- 'leiske/valid-test',
 })
