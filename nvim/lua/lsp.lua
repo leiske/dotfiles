@@ -92,6 +92,7 @@ vim.filetype.add({
         -- yaml = 'helm',
       -- using ansible templating for docker compose yaml files
         j2 = 'yaml',
+        hbs = 'html',
     },
     pattern = {
         ['.*%.blade%.php'] = 'blade',
