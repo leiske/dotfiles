@@ -118,8 +118,8 @@ wk.register({
       b = { ":Gitsigns toggle_current_line_blame<CR>", "toggle git blame for current line" },
     },
     c = {
-      n = { ":cn<CR>", "Next Quickfix" },
-      p = { ":cp<CR>", "Previous Quickfix" },
+      n = { ":cn<CR>zz", "Next Quickfix" },
+      p = { ":cp<CR>zz", "Previous Quickfix" },
       l = { ":clist<CR>", "Open Quickfix List" },
       c = { ":cclose<CR>", "Close Quickfix List" },
     },
