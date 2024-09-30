@@ -195,4 +195,8 @@ require('lazy').setup({
     },
   },
   -- 'leiske/valid-test',
+  {
+    'mfussenegger/nvim-dap',
+    "jay-babu/mason-nvim-dap.nvim",
+  },
 })
