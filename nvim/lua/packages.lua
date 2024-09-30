@@ -194,9 +194,4 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-  -- 'leiske/valid-test',
-  {
-    'mfussenegger/nvim-dap',
-    "jay-babu/mason-nvim-dap.nvim",
-  },
 })
