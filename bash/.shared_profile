@@ -16,6 +16,7 @@ alias gp='git push'
 alias gc='git checkout $1'
 alias ga='git add'
 alias gau='git add -u'
+alias gap='git add -p'
 # why did these break on mac out of no where? I thought I could always use params in aliases but this is feeling like a mandela effect moment or something
 alias gcb='git checkout -b $1'
 alias gcm='git commit -m $1'
