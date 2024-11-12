@@ -95,6 +95,7 @@ vim.filetype.add({
       -- using ansible templating for docker compose yaml files
         j2 = 'yaml',
         hbs = 'html',
+        tf = 'terraform',
     },
     pattern = {
         ['.*%.blade%.php'] = 'blade',
