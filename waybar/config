@@ -98,7 +98,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format-charging": "",
+    "format-charging": " {capacity}% {time}",
     "format-plugged": "",
     "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
