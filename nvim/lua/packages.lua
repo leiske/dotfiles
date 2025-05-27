@@ -29,9 +29,9 @@ require('lazy').setup({
     },
   },
 
-  {
-    'github/copilot.vim',
-  },
+  -- {
+  --   'github/copilot.vim',
+  -- },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
