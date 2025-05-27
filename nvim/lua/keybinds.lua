@@ -165,3 +165,4 @@ vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, { de
 require('leap').add_default_mappings()
 
 vim.keymap.set("n", "<leader>rt", ":!./run.sh <CR>", { desc = "Run the script for whatever repo" })
+vim.keymap.set("n", "<leader>re", ":e run.sh <CR>", { desc = "Edit the run script for whatever repo" })

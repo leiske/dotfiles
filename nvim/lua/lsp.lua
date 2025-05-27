@@ -127,19 +127,19 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
--- mason_lspconfig.setup {
---     ensure_installed = vim.tbl_keys(masonServers),
--- }
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(masonServers),
+}
 
--- mason_lspconfig.setup_handlers {
--- function(server_name)
---     require('lspconfig')[server_name].setup {
---         capabilities = capabilities,
---         settings = masonServers[server_name],
---         filetypes = (masonServers[server_name] or {}).filetypes,
---     }
--- end
--- }
+mason_lspconfig.setup_handlers {
+function(server_name)
+    require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        settings = masonServers[server_name],
+        filetypes = (masonServers[server_name] or {}).filetypes,
+    }
+end
+}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
