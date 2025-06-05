@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Cursor
+Comment=cursor
+Icon=/home/valid/bin/cursor
+Exec=/home/valid/bin/cursor
+Terminal=false
+Categories=TextEditor
