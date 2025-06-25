@@ -30,6 +30,7 @@ alias la='ls -al'
 
 alias vim="nvim"
 alias ivm="nvim"
+alias vi="nvim"
 alias cvim="nvim ~/.config/nvim"
 alias generateSecret="openssl rand -base64 ${1:-32}"
 

@@ -22,6 +22,7 @@ require('nvim-treesitter.configs').setup {
         'bash',
         'markdown',
         'markdown_inline',
+        'groovy',
     },
 
     modules = {},
