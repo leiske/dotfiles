@@ -57,4 +57,3 @@ if [ -f ~/.home_profile ]; then
         . ~/.home_profile
 fi
 
-source <(fzf --zsh)

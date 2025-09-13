@@ -19,3 +19,5 @@ function ghpr() {
   awk '{print $1}' |
   xargs gh pr checkout -f;
 }
+
+source <(fzf --zsh)

@@ -5,3 +5,5 @@ if [ "$1" == "--work" ]; then
 else
     ln -s $PWD/bash/.home_profile ~/.home_profile
 fi
+
+echo "Now source that into your .bashrc or whatever"

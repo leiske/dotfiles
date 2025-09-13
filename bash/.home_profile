@@ -18,8 +18,9 @@ alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias open='explorer.exe .'
 
 # asdf version manager for things like node
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
+# . "$HOME/.asdf/asdf.sh"
+# . "$HOME/.asdf/completions/asdf.bash"
 
 # write to histroy on all comamnd invocations
 PROMPT_COMMAND="history -a; history -c; history -r"
+eval "$(fzf --bash)"
