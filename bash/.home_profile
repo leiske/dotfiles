@@ -8,7 +8,17 @@ alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r' | head -n -1
 # journal
 export logdir=~/.journal
 function journal(){
-    vim $logdir/$(date +%Y-%m-%d -d "$*").md
+   local file="$logdir/$(date +%Y-%m-%d -d "$*").md"
+
+    # git -C "$logdir" pull --rebase
+
+    vim "$file"
+
+    if [[ -n "$(git -C "$logdir" status --porcelain "$file")" ]]; then
+        git -C "$logdir" add "$file"
+        git -C "$logdir" commit -m "journal: $(basename "$file" .md)"
+        git -C "$logdir" push
+    fi
 }
 
 alias ask='ollama run llama3 "$1"'
