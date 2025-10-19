@@ -4,6 +4,8 @@
 
 `sudo nmtui` to connect to a network
 
+Even works for coffee shops etc, no issues so far
+
 ### Brightness
 
 `brightnessctl set 50` to set brightness to 50%
