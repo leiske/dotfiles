@@ -20,4 +20,16 @@ function ghpr() {
   xargs gh pr checkout -f;
 }
 
+function watch() {
+  local root_dir=~/src/client-lib-js
+  local pkg="$1"
+  if [ -z "$pkg" ]; then
+    echo "Usage: watch <package>"
+    return 1
+  fi
+
+  cd $root_dir || return 1
+  make run-adhoc ARGS="npx jest --config packages/$pkg/jest.config.js --watch"
+}
+
 source <(fzf --zsh)
