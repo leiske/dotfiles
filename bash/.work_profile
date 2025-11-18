@@ -32,4 +32,13 @@ function watch() {
   make run-adhoc ARGS="npx jest --config packages/$pkg/jest.config.js --watch"
 }
 
+function sha256() {
+  if [ -z "$1" ]; then
+    echo "Usage: sha256 <text>"
+    return 1
+  fi
+
+  echo -n "$1" | shasum -a 256 | awk '{print $1}'
+}
+
 source <(fzf --zsh)
