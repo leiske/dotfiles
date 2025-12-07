@@ -28,3 +28,11 @@ rm -r ~/.local/share/nvim
 # check your XDG_* env vars for this
 rm -r ~/.cache/nvim
 ```
+
+
+### Weird tmux behavior on laptop 
+
+For whatever reason I found tmux was instantly closing on ressurect on the laptop.
+
+
+Just rip out a `tmux new -s start` and that was fine for whatever reason. Idk - plugins seem fine starting with that too so truly a mystery to me
