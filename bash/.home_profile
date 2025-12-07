@@ -33,4 +33,9 @@ alias open='explorer.exe .'
 
 # write to histroy on all comamnd invocations
 PROMPT_COMMAND="history -a; history -c; history -r"
-eval "$(fzf --bash)"
+# check if using zsh or bash to run correct fzf version
+if [ -n "$ZSH_VERSION" ]; then
+  eval "$(fzf --zsh)"
+elif [ -n "$BASH_VERSION" ]; then
+  eval "$(fzf --bash)"
+fi
