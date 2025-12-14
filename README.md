@@ -36,3 +36,13 @@ For whatever reason I found tmux was instantly closing on ressurect on the lapto
 
 
 Just rip out a `tmux new -s start` and that was fine for whatever reason. Idk - plugins seem fine starting with that too so truly a mystery to me
+
+### wireguard on laptop
+
+```
+> sudo wg-quick up lumby
+```
+
+```
+> sudo wg-quick down lumby
+```
