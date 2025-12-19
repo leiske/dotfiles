@@ -78,22 +78,6 @@ local function getCurrentBufferWorkingDirectory()
   return packageWorkingDir
 end
 
-local function gotoDefinition()
-  require('telescope.builtin').lsp_definitions({
-    initial_mode = 'normal',
-    on_complete = {
-      function(picker)
-        -- remove this on_complete callback
-        picker:clear_completion_callbacks()
-        -- if we have exactly one match, select it
-        if picker.manager.linked_states.size == 1 then
-          require('telescope.actions').select_default(picker.prompt_bufnr)
-        end
-      end,
-    }
-  })
-end
-
 wk.register({
   ['<leader>'] = {
     s = {
@@ -108,7 +92,7 @@ wk.register({
     },
     g = {
       name = 'goto/github',
-      d = { function() gotoDefinition() end, 'Goto definition using lsp (ignores *.d.ts files)' },
+      d = { require('telescope.builtin').lsp_definitions, 'Goto definition using lsp (ignores *.d.ts files)' },
       h = { ':GHInteractive<cr>', 'open current line in GitHub' },
       b = { ':GBInteractive<cr>', 'open current line blame in GitHub' },
     },

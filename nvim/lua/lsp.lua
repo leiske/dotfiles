@@ -104,10 +104,6 @@ local lsp_servers = {
   "ts_query_ls",
 }
 
-for _, lsp in ipairs(lsp_servers) do
-  vim.lsp.config[lsp] = {}
-end
-
 vim.lsp.enable(lsp_servers)
 
 -- set formatting based on file types here
