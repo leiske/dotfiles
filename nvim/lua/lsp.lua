@@ -88,7 +88,27 @@ require('nvim-treesitter.configs').setup {
             },
         },
     },
-    }
+  }
+
+-- this is what I have defined in Mason prior to the v11 update
+local lsp_servers = {
+  "graphql",
+  "groovyls",
+  -- php
+  "intelephense",
+  "java_language_server",
+  "lua_ls",
+  "terraformls",
+  -- typescript
+  "ts_ls",
+  "ts_query_ls",
+}
+
+for _, lsp in ipairs(lsp_servers) do
+  vim.lsp.config[lsp] = {}
+end
+
+vim.lsp.enable(lsp_servers)
 
 -- set formatting based on file types here
 vim.filetype.add({
@@ -104,57 +124,21 @@ vim.filetype.add({
     },
 })
 
-local masonServers = {
-    -- gopls = {},
-    -- pyright = {},
-    -- rust_analyzer = {},
-    -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-    lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    },
-}
-
--- Setup neovim lua configuration
-require('neodev').setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(masonServers),
-}
-
-mason_lspconfig.setup_handlers {
-function(server_name)
-    require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        settings = masonServers[server_name],
-        filetypes = (masonServers[server_name] or {}).filetypes,
-    }
-end
-}
+-- vim.lsp.config[server_name] = {
+-- 	capabilities = capabilities,
+-- 	settings = masonServers[server_name],
+-- 	filetypes = (masonServers[server_name] or {}).filetypes,
+-- }
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
 
 cmp.setup {
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
     mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -175,8 +159,6 @@ cmp.setup {
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -184,6 +166,5 @@ cmp.setup {
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
     },
 }

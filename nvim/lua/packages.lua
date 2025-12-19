@@ -36,7 +36,18 @@ require('lazy').setup({
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    config = function()
+      defaults = {
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,  -- override the file sorter
+            case_mode = "smart_case",
+          }
+        }
+      }
+    end,
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -47,9 +58,6 @@ require('lazy').setup({
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
         build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
       },
     },
   },
@@ -77,7 +85,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- Adds the middle cmdline and floating notifs 
+  -- Adds the middle cmdline and floating notifs
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -98,7 +106,7 @@ require('lazy').setup({
       presets = {
         -- bottom_search = true, -- use a classic bottom cmdline for search
         long_message_to_split = true, -- long messages will be sent to a split
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        lsp_doc_border = true,        -- add a border to hover docs and signature help
       },
       routes = {
         {
@@ -129,7 +137,7 @@ require('lazy').setup({
   -- quickly switch between windows
   'ThePrimeagen/harpoon',
 
-  -- adds more to the . 
+  -- adds more to the .
   'tpope/vim-repeat',
 
   -- for commenting code
@@ -159,7 +167,7 @@ require('lazy').setup({
     -- keys = { '<space>m', '<space>j', '<space>s' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require('treesj').setup({ max_join_length=512 })
+      require('treesj').setup({ max_join_length = 512 })
     end,
   },
 
@@ -169,13 +177,6 @@ require('lazy').setup({
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
     },
   },
 
@@ -183,15 +184,8 @@ require('lazy').setup({
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
     },
   },
 })

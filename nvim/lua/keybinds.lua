@@ -162,7 +162,10 @@ vim.keymap.set('n', '<leader>vd', function() vim.diagnostic.open_float() end,
   { desc = 'Open (v)im (d)iagnostic floating window' })
 vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, { desc = 'Show (v)im (r)efe(r)ences' })
 
-require('leap').add_default_mappings()
+-- LEAP defaults
+-- @see https://codeberg.org/andyg/leap.nvim
+vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 
 vim.keymap.set("n", "<leader>rt", ":!./run.sh <CR>", { desc = "Run the script for whatever repo" })
 vim.keymap.set("n", "<leader>re", ":e run.sh <CR>", { desc = "Edit the run script for whatever repo" })
