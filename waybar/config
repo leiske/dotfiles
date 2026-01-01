@@ -9,10 +9,20 @@
   // Choose the order of the modules
   "modules-left": ["custom/zypper", "cpu", "memory", "temperature", "backlight"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["network", "bluetooth", "battery", "pulseaudio", "clock"],
+  "modules-right": ["network", "custom/wireguard", "bluetooth", "battery", "pulseaudio", "clock"],
   "custom/layout": {
     "tooltip": false,
     "exec": "swaymsg -mrt subscribe '[\"input\"]' | jq -r --unbuffered \"select(.change == \\\"xkb_layout\\\") | .input | select(.type == \\\"keyboard\\\") | .xkb_active_layout_name | .[0:2]\""
+  },
+  "custom/wireguard": {
+    "format": "{icon}",
+    "format-icons": {
+      "on": "",
+      "off": ""
+    },
+    "exec": "ip link show lumby 2>/dev/null | grep -c UP | sed 's/0/off/; s/1/on/'",
+    "interval": 10,
+    "tooltip": false
   },
   "custom/zypper": {
     "format": "{} ",
