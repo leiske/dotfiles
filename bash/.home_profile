@@ -1,6 +1,8 @@
 # vim:ft=bash
 
 alias winry="cd /home/valid/develop/winry"
+alias wgup="sudo wg-quick up lumby"
+alias wgdown="sudo wg-quick down lumby"
 
 # Source - https://stackoverflow.com/a
 # Posted by AzuxirenLeadGuy, modified by community. See post 'Timeline' for change history

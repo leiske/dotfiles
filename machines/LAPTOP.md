@@ -52,4 +52,7 @@ See https://wiki.archlinux.org/title/Bluetooth
 * `chrome` - web browser
 * `discord` - chat client (this keeps freezing / crashing. Web app is goto for now)
 * `openSUSE Tumbleweed` - operating system
+* `terraform` - infrastructure as code tool
+* `wireguard` - VPN
+* `ansible` - configuration management tool
 
