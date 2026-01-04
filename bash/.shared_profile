@@ -36,6 +36,7 @@ alias cvim="nvim ~/.config/nvim"
 alias generateSecret="openssl rand -base64 ${1:-32}"
 
 alias k="kubectl"
+alias tf="terraform"
 alias ar="php artisan"
 
 alias szsh='source ~/.zshrc'
