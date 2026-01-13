@@ -26,12 +26,12 @@ Where `<plan document>` matches a file in the root of the repository matching th
     5. Polish/cleanup
 - Check recent history (git: `git log --oneline -10`)
 
-### 2. Initialize Progress (if needed)
+### 2. Initialize task memory (if needed)
 
 If task-memory.md doesn't exist, create it:
 
 ```markdown
-# Progress Log
+# task memory Log
 plan: <plan document>
 Started: <YYYY-MM-DD>
 
@@ -44,13 +44,12 @@ Started: <YYYY-MM-DD>
 
 ### 4. Implement Task
 
-Work on the single task until verification steps pass.
+Work on the single task until verification steps pass. Do not make drive-by unrelated changes. Stay on track for the given task. Unless you have a blocking question, keep going until completed.
 
 
 ### 5. Feedback Loops (REQUIRED)
 
 Before committing, run ALL applicable:
-- Type checking
 - Tests
 - Linting
 - Formatting
@@ -61,7 +60,7 @@ Before committing, run ALL applicable:
 
 Fill in the checkbox for the task you've completed after validating it works as expected
 
-### 7. Update Progress
+### 7. Update task memory
 
 Append to task-memory.md:
 
