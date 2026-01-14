@@ -11,6 +11,7 @@ Complete one task from a plan file. Implements the next task with unresolved tas
 ```
 
 Where `<plan document>` matches a file in the root of the repository matching the name.
+If no `<plan document>` is provided, defaults to `plan.md`.
 
 ## Process
 
