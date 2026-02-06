@@ -8,6 +8,8 @@ export XDG_CACHE_HOME=~/.cache/
 export EDITOR="$(which nvim || which vim)"
 export VISUAL="$(which nvim || which vim)"
 
+export CODEX_HOME=$XDG_CONFIG_HOME/codex
+
 # lots of unoptimized git stuff here
 alias gs='git status'
 alias gd='git diff'
