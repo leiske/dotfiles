@@ -6,7 +6,7 @@ description: Create a PR description following the PULL_REQUEST_TEMPLATE closely
 ## Overview
 You are going to write a PR description following the repos PULL_REQUEST_TEMPLATE closely.
 
-Review the commits made in the branch related to the ticket at hand and find the relevant changes.
+Review the commits made in the branch related to the ticket at hand and find the relevant changes. Do not write a per-commit changelog. Synthesize the **end result** of the line of commits to indicate what will be net-new on the main branch post-merge
 
 Under the test plan, keep it brief with manual testing instructions. Unit tests are a given, so do not mention them in this section. Keep that for any technical changes section.
 

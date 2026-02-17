@@ -50,3 +50,4 @@ All of our PRs are in forks. Keep this in mind. Do not run tests or lint locally
 - Include file paths and line numbers
 - Suggest fixes when appropriate
 - Matter-of-fact tone, very terse, no flattery
+- A "recommendation" section that gives a yay/nay
