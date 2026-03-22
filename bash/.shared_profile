@@ -40,9 +40,10 @@ alias generateSecret="openssl rand -base64 ${1:-32}"
 alias k="kubectl"
 alias tf="terraform"
 alias ar="php artisan"
+
 # be smart young buck
 alias cx="codex --dangerously-bypass-approvals-and-sandbox"
-alias cd="claude --allow-dangerously-skip-permissions"
+alias cld="claude --allow-dangerously-skip-permissions"
 
 alias szsh='source ~/.zshrc'
 function vzsh() {
