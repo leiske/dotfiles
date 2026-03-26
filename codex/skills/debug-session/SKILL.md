@@ -24,3 +24,4 @@ Start by clarifying the problem with the user if not provided. Ensure you unders
 * Every log statement MUST be associated with a hypothesis and is included in the log statement. (e.g., "H1:")
 * Every log statement MUST have a prefix that allows for easy filtering, unrelated to the hypothesis, such as a unique identifier or a consistent format. (e.g., "DEBUG-SESSION:")
 * Do NOT log objects, always JSON stringify them for easier copy pasting.
+* use `console.log` - do NOT use `console.debug` as it may be filtered out by default
