@@ -35,6 +35,7 @@ All of our PRs are in forks. Keep this in mind. Do not run tests or lint locally
 
 **Comments** — Are the comments describing the why instead of the what?
 - Superfluous comments that don't add clarity?
+- Do JSDocs match the code implementing them and/or callers?
 
 ## Before You Flag Something
 
