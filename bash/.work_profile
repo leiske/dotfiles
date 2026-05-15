@@ -1,6 +1,6 @@
 # vim:ft=bash
 
-function jira() {
+function ticket() {
     export TMP_FILE=$(mktemp)
     nvim "+0r ~/.config/jira_template.md" +3 $TMP_FILE
     export jiraFmt=$(cat $TMP_FILE | pandoc -f markdown -t textile)
