@@ -160,7 +160,9 @@ require('lazy').setup({
   },
 
   -- for different vertical movement when i feel like it
-  'ggandor/leap.nvim',
+  {
+    url = 'https://codeberg.org/andyg/leap.nvim',
+  },
 
   {
     'Wansmer/treesj',
