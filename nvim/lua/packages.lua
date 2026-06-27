@@ -171,6 +171,44 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'stevearc/conform.nvim',
+    version = 'v9.1.0',
+    cmd = { 'ConformInfo' },
+    opts = function()
+      local util = require('conform.util')
+
+      return {
+        default_format_opts = {
+          lsp_format = 'fallback',
+        },
+        formatters_by_ft = {
+          javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          javascriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          typescriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          json = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          jsonc = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          css = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          html = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+          markdown = { 'prettierd', 'prettier', stop_after_first = true },
+          yaml = { 'prettierd', 'prettier', stop_after_first = true },
+        },
+        formatters = {
+          biome = {
+            command = util.from_node_modules('biome'),
+          },
+          prettier = {
+            command = util.from_node_modules('prettier'),
+          },
+          prettierd = {
+            command = util.from_node_modules('prettierd'),
+          },
+        },
+      }
+    end,
+  },
+
   -- LSP Configuration & Plugins
   {
     'neovim/nvim-lspconfig',

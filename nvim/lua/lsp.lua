@@ -91,6 +91,32 @@ require('nvim-treesitter.configs').setup {
   }
 
 -- this is what I have defined in Mason prior to the v11 update
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+local util = require('lspconfig.util')
+
+vim.lsp.config('ts_ls', {
+  capabilities = capabilities,
+  before_init = function(_, config)
+    local tsdk = util.get_typescript_server_path(config.root_dir)
+    if tsdk ~= '' then
+      config.init_options = config.init_options or {}
+      config.init_options.tsserver = config.init_options.tsserver or {}
+      config.init_options.tsserver.path = tsdk .. '/tsserver.js'
+    end
+  end,
+  handlers = {
+    ['$/typescriptVersion'] = function(_, result)
+      vim.notify(
+        string.format('TypeScript LSP using %s TypeScript %s', result.source, result.version),
+        vim.log.levels.INFO
+      )
+    end,
+  },
+})
+
 local lsp_servers = {
   "graphql",
   "groovyls",
@@ -119,10 +145,6 @@ vim.filetype.add({
         ['.*%.blade%.php'] = 'blade',
     },
 })
-
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- vim.lsp.config[server_name] = {
 -- 	capabilities = capabilities,

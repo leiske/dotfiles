@@ -122,7 +122,9 @@ vim.keymap.set('v', '<leader>y', '\'*y', { desc = '(y)ank to system clipboard' }
 vim.keymap.set('v', '<leader>d', '\'_d', { desc = '(d)elete while retaining your copied item' })
 vim.keymap.set('n', '<leader>d', '\'_d', { desc = '(d)elete while retaining your copied item' })
 
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '(f)ormat the current buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>f', function()
+  require('conform').format({ async = true, lsp_format = 'fallback' })
+end, { desc = '(f)ormat the current buffer' })
 
 vim.keymap.set('t', '<esc>', '<C-\\><C-N>', { desc = 'Escape from terminal mode' })
 
