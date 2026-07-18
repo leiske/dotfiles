@@ -1,5 +1,7 @@
 ---
 description: Complete the next incomplete task from a plan document
+agent: build
+model: openai/gpt-5.2
 ---
 
 Complete one task from a plan file. Implements the next task with unresolved tasks, runs feedback loops, and commits.
