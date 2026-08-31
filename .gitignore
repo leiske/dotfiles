@@ -2,6 +2,7 @@
 !/.gitignore
 !/
 !/nvim
+!/pi
 
 nvim/undodir/*
 

@@ -74,6 +74,9 @@ safe_symlink "$repo_root/bash/.shared_profile" "$HOME/.shared_profile"
 safe_symlink "$repo_root/bash/$profile_name" "$HOME/$profile_name"
 maybe_remove_other_profile "$HOME/$other_profile_name"
 
+mkdir -p "$HOME/.pi/agent/extensions"
+safe_symlink "$repo_root/pi/extensions/task-timer.ts" "$HOME/.pi/agent/extensions/task-timer.ts"
+
 updated_any=0
 for shell_file in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.bash_profile" "$HOME/.zsh_profile"; do
   if ensure_sourced_in_file "$shell_file" "$HOME/$profile_name"; then
