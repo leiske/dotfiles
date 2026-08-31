@@ -45,6 +45,7 @@ alias ar="php artisan"
 # be smart young buck
 alias cx="codex --dangerously-bypass-approvals-and-sandbox"
 alias cld="claude --allow-dangerously-skip-permissions"
+alias cpt="copilot --yolo"
 
 alias szsh='source ~/.zshrc'
 function vzsh() {

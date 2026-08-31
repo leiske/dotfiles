@@ -42,7 +42,7 @@ require('lazy').setup({
           fzf = {
             fuzzy = true,
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true,  -- override the file sorter
+            override_file_sorter = true,    -- override the file sorter
             case_mode = "smart_case",
           }
         }
@@ -228,4 +228,11 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
     },
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  }
 })
